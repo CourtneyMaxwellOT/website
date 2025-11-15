@@ -1,106 +1,314 @@
-<html>
-  <head>
-    <title>
-    Courtney Maxwell
-    </title>
-    <style>
-      body {
-        background: #ddedff;
-      }
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Courtney Maxwell, OTR/L — Occupational Therapy & Consultancy</title>
+  <meta name="description" content="Courtney Maxwell, OTR/L — Occupational Therapy private practice and consultancy focused on adult and pediatric rehabilitation, accessibility consulting, and telehealth." />
+  <meta name="author" content="Courtney Maxwell, OTR/L" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo="> 
+  <style>
+    /* Minimal, modern, system-font-first design */
+    :root{
+      --bg: #ffffff;
+      --muted:#6b7280;
+      --accent:#0f766e;
+      --accent-600:#115e59;
+      --card:#f8fafc;
+      --max-width:1000px;
+      --radius:14px;
+      --focus: 3px solid rgba(16,185,129,0.18);
+      color-scheme: light;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:2rem 1rem;
+      display:flex;justify-content:center;
+    }
+    .container{
+      width:100%;max-width:var(--max-width);
+    }
+    /* Skip link */
+    .skip-link{
+      position:absolute;left:0;top:0;transform:translateY(-120%);
+    }
+    .skip-link:focus{transform:none;background:#111;color:#fff;padding:.5rem 1rem;border-radius:6px;z-index:999}
 
-      h1 {
-        margin: 0;
-      }
-      
-      .container {
-        display: flex;
-        position: relative;
-      }
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:2rem;
+    }
+    .branding{display:flex;align-items:center;gap:.75rem}
+    .brand-name{font-weight:600;font-size:1.05rem}
+    .brand-role{font-size:.875rem;color:var(--muted)}
 
-      .container section {
-        position: absolute;
-        padding: 10px;
-        font-family: Arial, Helvetica, sans-serif;
-      }
+    nav{display:flex;gap:.5rem;align-items:center}
+    .nav-list{display:flex;gap:.5rem;list-style:none;padding:0;margin:0}
+    .nav-list a{display:inline-block;padding:.4rem .8rem;border-radius:10px;text-decoration:none;color:inherit;font-weight:500}
+    .nav-list a[aria-current="page"]{background:var(--card);box-shadow:0 1px 0 rgba(15,23,42,0.05), 0 6px 10px -6px rgba(15,23,42,0.06)}
 
-      .container section header {
-        position: relative;
-        background: white;
-        text-align: center;
-        padding: 10px;
-        border-radius: 10px 10px 0 0;
-        border: 1px solid lightgray;
-        border-bottom: none;
-        width: 100px;
-      }
+    main{display:grid;grid-template-columns:1fr;gap:1.5rem}
+    .hero{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+    .card{background:var(--card);border-radius:var(--radius);padding:1.25rem}
 
-      .container section header::after {
-        position: absolute;
-        content: '';
-        display: block;
-        width: 100%;
-        bottom: -1px;
-        border: 1px solid white;
-        width: 100px;
-      }
+    h1{margin:.1rem 0 0;font-size:1.35rem}
+    p.lead{margin:.35rem 0 0;color:var(--muted)}
 
-      .container section:nth-child(2) header {
-        margin-left: 123px;
-      }
+    .grid-2{display:grid;grid-template-columns:1fr 360px;gap:1rem}
+    .about{padding:1rem}
 
-      .container section:nth-child(3) header {
-        margin-left: 246px;
-      }
+    .services ul{list-style:none;padding:0;margin:0;display:grid;gap:.75rem}
+    .service{padding:.9rem;border-radius:10px;background:#fff;border:1px solid rgba(15,23,42,0.04)}
+    .service h3{margin:0 0 .25rem;font-size:1rem}
+    .service p{margin:0;color:var(--muted);font-size:.92rem}
 
-      .container section p {
-        padding: 20px;
-        margin-top: 0;
-        background: white;
-        border: 1px solid lightgray;
-        width: 600px;
-      }
-     
-    </style>
-  </head>
-  <body>
+    aside.contact-card{position:sticky;top:1rem}
+    .contact-list{display:grid;gap:.5rem}
 
-    <div class="container">
-      <section>
-        <header>
-          <h1>
-            About
-          </h1>
-        </header>
-  
-        <p>
-          Coming soon…
-        </p>
+    footer{margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(15,23,42,0.04);font-size:.9rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+
+    /* Contact form */
+    form{display:grid;gap:.5rem}
+    label{font-size:.9rem}
+    input[type="text"],input[type="email"],textarea,select{width:100%;padding:.6rem .75rem;border-radius:8px;border:1px solid rgba(15,23,42,0.08);font-size:.95rem}
+    textarea{min-height:120px;resize:vertical}
+    .btn{display:inline-block;padding:.6rem .9rem;border-radius:10px;background:var(--accent);color:white;border:none;font-weight:600;text-decoration:none;cursor:pointer}
+    .btn:focus{outline:none;box-shadow:var(--focus)}
+    .secondary{background:transparent;border:1px solid rgba(15,23,42,0.06);color:inherit}
+
+    /* Focus styles */
+    a:focus,input:focus,textarea:focus,button:focus{outline:none;box-shadow:var(--focus)}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .grid-2{grid-template-columns:1fr}
+      aside.contact-card{position:relative}
+      header{flex-direction:column;align-items:stretch}
+      nav{order:2}
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+    /* Accessibility: high contrast option via prefers-contrast if available */
+    @media (prefers-contrast:more){
+      :root{--accent:#08716b}
+      body{background:#fff}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="container" id="site">
+    <header role="banner" aria-label="Site header">
+      <div class="branding">
+        <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="0" y="0" width="24" height="24" rx="6" fill="var(--accent)"></rect>
+          <text x="12" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#fff">CM</text>
+        </svg>
+        <div>
+          <div class="brand-name">Courtney Maxwell, OTR/L</div>
+          <div class="brand-role">Occupational Therapist — Private Practice &amp; Consultancy</div>
+        </div>
+      </div>
+
+      <nav role="navigation" aria-label="Primary" >
+        <ul class="nav-list" id="primary-nav">
+          <li><a href="#about" data-target="about">About</a></li>
+          <li><a href="#services" data-target="services">Services</a></li>
+          <li><a href="#contact" data-target="contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" role="main" tabindex="-1">
+      <section class="hero card" aria-labelledby="intro-title">
+        <div>
+          <h1 id="intro-title">Personalized Occupational Therapy &amp; Accessibility Consulting</h1>
+          <p class="lead">I help adults and children regain independence, return to meaningful activities, and design inclusive environments — combining clinical best practice with pragmatic accessibility solutions.</p>
+        </div>
+        <div style="min-width:200px;text-align:right">
+          <p style="margin:0;font-weight:600">Telehealth &amp; In-person</p>
+          <p style="margin:0;color:var(--muted)">Licensed OTR/L</p>
+        </div>
       </section>
-  
-      <section>
-        <header>
-          <h1>
-            Services 
-          </h1>
-        </header>
-  
-        <p>
-          Coming soon…
-        </p>
+
+      <div class="grid-2">
+        <section id="about" class="about card" aria-labelledby="about-title">
+          <h2 id="about-title">About</h2>
+          <p>Hi — I’m Courtney Maxwell, OTR/L. I specialize in adult and pediatric rehabilitation, sensory strategies, assistive technology recommendations, and accessibility consulting for workplaces and education settings. I take a collaborative, evidence-based approach and tailor plans to each person's goals and context.</p>
+
+          <h3 style="margin-top:1rem">Approach</h3>
+          <p>My practice emphasizes functional outcomes, shared decision-making, and measurable goals. I partner with families, educators, employers, and interdisciplinary teams to remove barriers and enable participation.</p>
+
+          <h3 style="margin-top:1rem">Credentials &amp; Safety</h3>
+          <p>Licensed OTR/L — continuing education in telehealth and accessibility. All clinical communications follow HIPAA best practices; telehealth platforms used are secure and encrypted.</p>
+        </section>
+
+        <aside class="contact-card card" aria-labelledby="contact-card-title">
+          <h2 id="contact-card-title">Contact / Quick info</h2>
+          <dl class="contact-list" role="list">
+            <div>
+              <dt style="font-weight:600">Location</dt>
+              <dd style="margin:0;color:var(--muted)">Boston, MA (telehealth available)</dd>
+            </div>
+            <div>
+              <dt style="font-weight:600">Email</dt>
+              <dd style="margin:0"><a href="mailto:courtney@example.com">courtney@example.com</a></dd>
+            </div>
+            <div>
+              <dt style="font-weight:600">Phone</dt>
+              <dd style="margin:0"><a href="tel:+15551234567">+1 (555) 123-4567</a></dd>
+            </div>
+            <div>
+              <dt style="font-weight:600">Availability</dt>
+              <dd style="margin:0;color:var(--muted)">Weekdays by appointment</dd>
+            </div>
+          </dl>
+          <p style="margin-top:.75rem"><a class="btn" href="#contact" data-target="contact">Request an appointment</a></p>
+        </aside>
+      </div>
+
+      <section id="services" class="services card" aria-labelledby="services-title">
+        <h2 id="services-title">Services</h2>
+        <p class="lead">Clinical practice and consulting services for individuals and organizations.</p>
+        <ul aria-describedby="services-desc">
+          <li class="service" aria-labelledby="svc1"><h3 id="svc1">Adult Rehabilitation</h3><p>Neurological and orthopedic rehabilitation, ADL retraining, energy conservation, and home program development.</p></li>
+          <li class="service" aria-labelledby="svc2"><h3 id="svc2">Pediatric Occupational Therapy</h3><p>Developmental support, sensory processing strategies, school-based consultation, and caregiver coaching.</p></li>
+          <li class="service" aria-labelledby="svc3"><h3 id="svc3">Accessibility &amp; Inclusivity Consulting</h3><p>Workplace and educational accessibility audits, policy recommendations, reasonable accommodations, and training.</p></li>
+          <li class="service" aria-labelledby="svc4"><h3 id="svc4">Assistive Technology &amp; Telehealth</h3><p>Equipment recommendations, remote assessments, and telehealth sessions for clients at home or away from clinical sites.</p></li>
+        </ul>
+        <p id="services-desc" hidden>Four service areas listed: Adult Rehabilitation, Pediatric Occupational Therapy, Accessibility Consulting, Assistive Technology &amp; Telehealth.</p>
       </section>
-      
-      <section>
-        <header>
-          <h1>
-            Contact
-          </h1>
-        </header>
-  
-        <p>
-          Coming soon…
-        </p>
+
+      <section id="contact" class="card" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <p class="lead">Use the form below to send a secure message. This site collects only the information you provide; no tracking cookies are used.</p>
+
+        <form id="contact-form" novalidate>
+          <fieldset>
+            <legend class="sr-only">Contact form</legend>
+
+            <label for="name">Full name <span aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required aria-required="true" />
+
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required aria-required="true" />
+
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="text" inputmode="tel" autocomplete="tel" />
+
+            <label for="reason">Reason for contact</label>
+            <select id="reason" name="reason">
+              <option value="appointment">Request appointment</option>
+              <option value="consult">Consulting inquiry</option>
+              <option value="access">Accessibility audit</option>
+              <option value="other">Other</option>
+            </select>
+
+            <label for="message">Message <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" required aria-required="true" aria-describedby="msg-help"></textarea>
+            <div id="msg-help" class="sr-only">Please include relevant details and any preferred times.</div>
+
+            <!-- Honeypot field: hidden from users but present to bots -->
+            <label class="sr-only" for="website">Leave this field blank</label>
+            <input id="website" name="website" type="text" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;" />
+
+            <div style="display:flex;gap:.5rem;margin-top:.5rem;flex-wrap:wrap">
+              <button class="btn" type="submit">Send message</button>
+              <button class="secondary" type="reset">Reset</button>
+              <div aria-live="polite" id="form-status" style="align-self:center;color:var(--muted);font-size:.95rem"></div>
+            </div>
+          </fieldset>
+        </form>
+
+        <p style="margin-top:1rem">If you'd prefer to email directly: <a href="mailto:courtney@example.com?subject=Inquiry%20from%20website">courtney@example.com</a></p>
       </section>
-    </div>
-  
-  </body>
+
+      <footer role="contentinfo">
+        <div>&copy; <span id="year"></span> Courtney Maxwell, OTR/L</div>
+        <div>Licensed OTR/L — HIPAA-compliant communications</div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Accessibility helpers and lightweight form handling
+    (function(){
+      // Update year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Smooth scrolling for internal links with reduced-motion respect
+      const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function smoothScrollTo(el){
+        if(prefersReduce){ el.focus(); return; }
+        el.scrollIntoView({behavior:'smooth',block:'start'});
+        // focus for keyboard users
+        setTimeout(()=>el.focus({preventScroll:true}),350);
+      }
+      document.querySelectorAll('a[data-target]').forEach(a=>{
+        a.addEventListener('click',function(e){
+          const id = this.getAttribute('href')?.replace(/^#/, '') || this.dataset.target;
+          const target = document.getElementById(id);
+          if(target){ e.preventDefault(); smoothScrollTo(target); history.replaceState(null,'', '#'+id); }
+        });
+      });
+
+      // Basic client-side validation + mailto fallback
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        status.textContent = '';
+
+        // Honeypot: if filled -> likely bot
+        if(document.getElementById('website').value){ status.textContent = 'Submission blocked.'; return; }
+
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const message = form.message.value.trim();
+
+        if(!name || !email || !message){
+          status.textContent = 'Please complete all required fields.'; 
+          document.getElementById(!name ? 'name' : !email ? 'email' : 'message').focus();
+          return;
+        }
+
+        // Create mailto link as fallback for GitHub Pages (no server-side processing).
+        const reason = form.reason.value;
+        const phone = form.phone.value.trim();
+        const subject = encodeURIComponent('Website inquiry: ' + reason);
+        let body = 'Name: ' + name + '\n';
+        body += 'Email: ' + email + '\n';
+        if(phone) body += 'Phone: ' + phone + '\n';
+        body += '\n' + message + '\n\n--\nThis message initiated from Courtney Maxwell website.';
+        const mailto = 'mailto:courtney@example.com?subject='+subject+'&body='+encodeURIComponent(body);
+
+        // Try to open mail client
+        window.location.href = mailto;
+        status.textContent = 'Opening your mail client — if nothing happens, please email courtney@example.com';
+      });
+
+      // Keyboard accessibility: enable skip link focus target
+      const main = document.getElementById('main');
+      document.querySelector('.skip-link').addEventListener('click',function(){ main.focus(); });
+
+      // Improve focus visibility for keyboard-only users
+      function handleFirstTab(e) {
+        if (e.key === 'Tab') document.body.classList.add('user-is-tabbing');
+      }
+      window.addEventListener('keydown', handleFirstTab, {once:true});
+
+      // Small helper to expose sr-only utility via JS-inserted style
+      const sr = document.createElement('style'); sr.innerHTML = '.sr-only{position:absolute!important;height:1px;width:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}'; document.head.appendChild(sr);
+    })();
+  </script>
+</body>
 </html>
